@@ -103,37 +103,54 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
-    /* Kalp ikonları */
+    /* Kalp ikonları sabit ve ekranın her iki yanında */
     .heart {
-      position: absolute;
+      position: fixed;
       font-size: 30px;
       color: red;
       z-index: 999;
-      animation: move-heart 1.5s linear infinite;
     }
     
     .heart-left {
       left: 10px;
+      top: 10px;
     }
 
     .heart-right {
       right: 10px;
+      top: 10px;
     }
 
-    /* Kalplerin aşağıya doğru hareket etmesini sağlamak için animasyon */
-    @keyframes move-heart {
-      0% { top: -30px; }
-      100% { top: 100vh; }
+    .heart-left:nth-child(odd), .heart-right:nth-child(odd) {
+      top: 100px;
     }
 
+    .heart-left:nth-child(even), .heart-right:nth-child(even) {
+      top: 200px;
+    }
+
+    /* Ekranda sürekli kalacak şekilde düzenleme */
     .heart:nth-child(odd) {
-      animation-duration: 3s;
-      animation-delay: 0s;
+      animation: none;
     }
 
     .heart:nth-child(even) {
-      animation-duration: 4s;
-      animation-delay: 1s;
+      animation: none;
+    }
+
+    /* Sayfa boyutlarına göre sayfa içeriği için uyumlu */
+    @media (max-width: 600px) {
+      .usg-img {
+        max-width: 80%;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 16px;
+      }
     }
 
   </style>
@@ -174,11 +191,7 @@
     </div>
   </div>
 
-  <!-- Kalp İkonları Sayfa Boyunca -->
-  <div class="heart heart-left">❤️</div>
-  <div class="heart heart-right">❤️</div>
-  <div class="heart heart-left">❤️</div>
-  <div class="heart heart-right">❤️</div>
+  <!-- Sabit Kalp İkonları Sayfa Boyunca -->
   <div class="heart heart-left">❤️</div>
   <div class="heart heart-right">❤️</div>
   <div class="heart heart-left">❤️</div>
