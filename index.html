@@ -105,22 +105,35 @@
 
     /* Kalp ikonları */
     .heart {
-      position: fixed;
-      font-size: 50px;
+      position: absolute;
+      font-size: 30px;
       color: red;
       z-index: 999;
+      animation: move-heart 1.5s linear infinite;
     }
     
     .heart-left {
       left: 10px;
-      top: 50%;
-      transform: translateY(-50%);
     }
 
     .heart-right {
       right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
+    }
+
+    /* Kalplerin aşağıya doğru hareket etmesini sağlamak için animasyon */
+    @keyframes move-heart {
+      0% { top: -30px; }
+      100% { top: 100vh; }
+    }
+
+    .heart:nth-child(odd) {
+      animation-duration: 3s;
+      animation-delay: 0s;
+    }
+
+    .heart:nth-child(even) {
+      animation-duration: 4s;
+      animation-delay: 1s;
     }
 
   </style>
@@ -161,7 +174,15 @@
     </div>
   </div>
 
-  <!-- Kalp İkonları -->
+  <!-- Kalp İkonları Sayfa Boyunca -->
+  <div class="heart heart-left">❤️</div>
+  <div class="heart heart-right">❤️</div>
+  <div class="heart heart-left">❤️</div>
+  <div class="heart heart-right">❤️</div>
+  <div class="heart heart-left">❤️</div>
+  <div class="heart heart-right">❤️</div>
+  <div class="heart heart-left">❤️</div>
+  <div class="heart heart-right">❤️</div>
   <div class="heart heart-left">❤️</div>
   <div class="heart heart-right">❤️</div>
 
