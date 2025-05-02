@@ -57,6 +57,14 @@
       transform: scale(1.05);
     }
 
+    /* Created by metni */
+    #girisEkrani .footer-text {
+      margin-top: 20px;
+      font-size: 16px;
+      font-style: italic;
+      color: #fff;
+    }
+
     /* Ana içerik görünmez başta */
     #mainContent {
       display: none;
@@ -95,6 +103,26 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
 
+    /* Kalp ikonları */
+    .heart {
+      position: fixed;
+      font-size: 50px;
+      color: red;
+      z-index: 999;
+    }
+    
+    .heart-left {
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .heart-right {
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
   </style>
 </head>
 <body>
@@ -103,6 +131,7 @@
   <div id="girisEkrani">
     <h2>Lütfen telefonunuzun sesini açın 🎵</h2>
     <button onclick="girisYap()">GİR</button>
+    <div class="footer-text">Created By Mehmet ÇAKIR</div>
   </div>
 
   <!-- Ana İçerik -->
@@ -131,6 +160,10 @@
       Bebeğin
     </div>
   </div>
+
+  <!-- Kalp İkonları -->
+  <div class="heart heart-left">❤️</div>
+  <div class="heart heart-right">❤️</div>
 
   <script>
     function girisYap() {
