@@ -6,16 +6,64 @@
   <title>Anneme Mektup</title>
   <style>
     body {
-      background-color: #fff8f0;
+      margin: 0;
       font-family: 'Georgia', serif;
+      background-color: #fff8f0;
       color: #3b2f2f;
-      padding: 40px;
+      overflow: hidden;
+    }
+
+    /* Giriş ekranı stili */
+    #girisEkrani {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.9) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      text-align: center;
+      color: #fff;
+      opacity: 1;
+      transition: opacity 1s ease-in-out;
+    }
+
+    #girisEkrani h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    #girisEkrani button {
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #ffffff;
+      color: #3b2f2f;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    #girisEkrani button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Ana içerik görünmez başta */
+    #mainContent {
+      display: none;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+      padding: 20px;
       max-width: 700px;
       margin: auto;
       text-align: center;
     }
+
     h1 {
-      text-align: center;
       font-size: 28px;
       margin-bottom: 20px;
     }
@@ -35,51 +83,62 @@
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
-    .audio-player {
-      margin-top: 20px;
-    }
-    .audio-player audio {
-      margin-bottom: 20px;
-    }
   </style>
 </head>
 <body>
-  <h1>“Annem Olacağın İçin Teşekkürler”</h1>
-  
-  <!-- USG GÖRÜNTÜSÜ -->
-  <img src="Usg.jpeg" alt="Ultrason Görüntüsü" class="usg-img">
 
-  <!-- SES DOSYALARI (kontrolsüz ve gizli çalacak şekilde tanımlandı) -->
-  <div class="audio-player">
+  <!-- Giriş Ekranı -->
+  <div id="girisEkrani">
+    <h2>Lütfen telefonunuzun sesini açın 🎵</h2>
+    <button onclick="girisYap()">GİR</button>
+  </div>
+
+  <!-- Ana İçerik -->
+  <div id="mainContent">
+    <h1>“Annem Olacağın İçin Teşekkürler”</h1>
+    <img src="Usg.jpeg" alt="Ultrason Görüntüsü" class="usg-img">
+
+    <!-- SES -->
     <audio id="audio1">
       <source src="bebek.mp3" type="audio/mpeg">
-      Tarayıcınız bu ses dosyasını desteklemiyor.
     </audio>
     <audio id="audio2">
       <source src="arkaplan.mp3" type="audio/mpeg">
-      Tarayıcınız bu ses dosyasını desteklemiyor.
     </audio>
+
+    <p>Sevgili Annem,</p>
+    <p>Henüz birbirimizi tam olarak tanımasak da, kalp atışını hissedebiliyorum. Beni sabırla, sevgiyle taşıdığın her gün için sana şimdiden teşekkür ederim.</p>
+    <p>Seninle geçireceğimiz ilk anı, ilk sarılmayı ve göz göze geleceğimiz o günü dört gözle bekliyorum. Senin gibi güçlü, sevgi dolu bir annenin çocuğu olacağım için çok şanslıyım.</p>
+    <p>Lütfen kendine iyi bak, çünkü sen iyiysen ben de iyiyim. Seni çok seviyorum, daha doğmadan.</p>
+
+    <div class="imza">
+      Hep seninle,<br />
+      Bebeğin
+    </div>
   </div>
 
-  <!-- MEKTUP METNİ -->
-  <p>Sevgili Annem,</p>
-  <p>Henüz birbirimizi tam olarak tanımasak da, kalp atışını hissedebiliyorum. Beni sabırla, sevgiyle taşıdığın her gün için sana şimdiden teşekkür ederim.</p>
-  <p>Seninle geçireceğimiz ilk anı, ilk sarılmayı ve göz göze geleceğimiz o günü dört gözle bekliyorum. Senin gibi güçlü, sevgi dolu bir annenin çocuğu olacağım için çok şanslıyım.</p>
-  <p>Lütfen kendine iyi bak, çünkü sen iyiysen ben de iyiyim. Seni çok seviyorum, daha doğmadan.</p>
-
-  <div class="imza">
-    Hep seninle,<br />
-    Bebeğin
-  </div>
-
-  <!-- SESLERİ TIKLAMA İLE BAŞLATAN JAVASCRIPT -->
   <script>
-    window.addEventListener('click', function () {
-      const audio1 = document.getElementById('audio1');
-      const audio2 = document.getElementById('audio2');
-      audio1.play();
-      audio2.play();
-    }, { once: true });
+    function girisYap() {
+      const giris = document.getElementById('girisEkrani');
+      const icerik = document.getElementById('mainContent');
+
+      // Giriş ekranını yavaşça gizle
+      giris.style.opacity = 0;
+      setTimeout(() => {
+        giris.style.display = 'none';
+        icerik.style.display = 'block';
+
+        // Geçiş efekti
+        setTimeout(() => {
+          icerik.style.opacity = 1;
+        }, 100);
+
+        // Sesleri başlat
+        document.getElementById('audio1').play();
+        document.getElementById('audio2').play();
+      }, 1000);
+    }
   </script>
+
 </body>
 </html>
