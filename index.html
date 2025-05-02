@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: 'Georgia', serif;
-      background-color: #fff8f0;
+      background-color: #f5e0e0; /* Toz Pembe Arka Plan Rengi */
       color: #3b2f2f;
       overflow: hidden;
     }
@@ -122,20 +122,22 @@
       const giris = document.getElementById('girisEkrani');
       const icerik = document.getElementById('mainContent');
 
-      // Giriş ekranını yavaşça gizle
       giris.style.opacity = 0;
       setTimeout(() => {
         giris.style.display = 'none';
         icerik.style.display = 'block';
 
-        // Geçiş efekti
         setTimeout(() => {
           icerik.style.opacity = 1;
         }, 100);
 
         // Sesleri başlat
-        document.getElementById('audio1').play();
-        document.getElementById('audio2').play();
+        const bebek = document.getElementById('audio1');
+        const arkaplan = document.getElementById('audio2');
+
+        arkaplan.volume = 0.5; // Arka plan müziğinin sesini yarıya indir
+        bebek.play();
+        arkaplan.play();
       }, 1000);
     }
   </script>
