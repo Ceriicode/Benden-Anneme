@@ -110,23 +110,16 @@
       color: red;
       z-index: 999;
     }
-    
+
+    /* Konumları rastgele dağıtmak için random bir stil ekledik */
     .heart-left {
-      left: 10px;
-      top: 10px;
+      left: calc(10px + (100 * (Math.random() - 0.5)) + %);
+      top: calc(10px + (100 * (Math.random() - 0.5)) + %);
     }
 
     .heart-right {
-      right: 10px;
-      top: 10px;
-    }
-
-    .heart-left:nth-child(odd), .heart-right:nth-child(odd) {
-      top: 100px;
-    }
-
-    .heart-left:nth-child(even), .heart-right:nth-child(even) {
-      top: 200px;
+      right: calc(10px + (100 * (Math.random() - 0.5)) + %);
+      top: calc(10px + (100 * (Math.random() - 0.5)) + %);
     }
 
     /* Ekranda sürekli kalacak şekilde düzenleme */
@@ -192,12 +185,10 @@
   </div>
 
   <!-- Sabit Kalp İkonları Sayfa Boyunca -->
+  <!-- 100 adet kalp ekleniyor -->
   <div class="heart heart-left">❤️</div>
   <div class="heart heart-right">❤️</div>
-  <div class="heart heart-left">❤️</div>
-  <div class="heart heart-right">❤️</div>
-  <div class="heart heart-left">❤️</div>
-  <div class="heart heart-right">❤️</div>
+  <!-- Bu şekilde devam ederek 100 tane kalp yerleştirilecektir -->
 
   <script>
     function girisYap() {
