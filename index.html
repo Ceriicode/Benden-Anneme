@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -23,7 +25,6 @@
       text-align: left;
     }
     .imza {
-      margin-top: 40px;
       margin-top: 30px;
       text-align: right;
       font-style: italic;
@@ -46,15 +47,15 @@
   <h1>“Annem Olacağın İçin Teşekkürler”</h1>
   
   <!-- USG GÖRÜNTÜSÜ -->
-  <img src="Usg.jpeg" alt="Ultrason Görüntüsü" class="Usg-img">
+  <img src="Usg.jpeg" alt="Ultrason Görüntüsü" class="usg-img">
 
-  <!-- İKİ SES DOSYASI -->
+  <!-- SES DOSYALARI (kontrolsüz ve gizli çalacak şekilde tanımlandı) -->
   <div class="audio-player">
-    <audio controls autoplay>
+    <audio id="audio1">
       <source src="bebek.mp3" type="audio/mpeg">
       Tarayıcınız bu ses dosyasını desteklemiyor.
     </audio>
-    <audio controls autoplay>
+    <audio id="audio2">
       <source src="arkaplan.mp3" type="audio/mpeg">
       Tarayıcınız bu ses dosyasını desteklemiyor.
     </audio>
@@ -70,5 +71,15 @@
     Hep seninle,<br />
     Bebeğin
   </div>
+
+  <!-- SESLERİ TIKLAMA İLE BAŞLATAN JAVASCRIPT -->
+  <script>
+    window.addEventListener('click', function () {
+      const audio1 = document.getElementById('audio1');
+      const audio2 = document.getElementById('audio2');
+      audio1.play();
+      audio2.play();
+    }, { once: true });
+  </script>
 </body>
 </html>
