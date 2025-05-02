@@ -10,7 +10,12 @@
       font-family: 'Georgia', serif;
       background-color: #f5e0e0; /* Toz Pembe Arka Plan Rengi */
       color: #3b2f2f;
-      overflow: hidden;
+      overflow-y: auto; /* Scroll eklemek için bu satır eklendi */
+      height: 100vh; /* Sayfanın tam yüksekliği */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     /* Giriş ekranı stili */
@@ -61,6 +66,8 @@
       max-width: 700px;
       margin: auto;
       text-align: center;
+      max-height: 80vh; /* İçeriğin yükseklik sınırını belirler */
+      overflow-y: auto; /* Scroll içeriğin taşması durumunda aktif olur */
     }
 
     h1 {
